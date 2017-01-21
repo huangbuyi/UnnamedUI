@@ -1,0 +1,13 @@
+
+
+.ripple-expading{
+	animation: rippleExpanding 650ms cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+
+@keyframes rippleExpanding {
+	0% { transform: scale(0); }
+	100% { transform: scale(1); }
+}
+
+
