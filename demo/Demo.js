@@ -69,7 +69,7 @@ class Demo extends React.Component {
 					</span>
 				</div>
 				{ this.state.codeVisible ?
-					<div dangerouslySetInnerHTML={ codeHtml } style={ codeBlock } className='markdown-body'></div>
+					<div dangerouslySetInnerHTML={ codeHtml } style={ codeBlock } className='markdown-body demo-code'></div>
 					: null
 				}
 			</div>
