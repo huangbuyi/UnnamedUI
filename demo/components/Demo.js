@@ -5,14 +5,14 @@ import 'prismjs/themes/prism.css'
 import marked from 'marked'
 import 'github-markdown-css/github-markdown.css'
 import './Demo.css'
-import CodeIcon from '../components/SvgIcon/code'
+import CodeIcon from '../../components/SvgIcon/code'
 
 marked.setOptions({
   	gfm: true,
 	highlight: function (code) {
 	   	return Prism.highlight(code, Prism.languages.jsx)
 	}
-});
+})
 
 function splitBetween(target, pre, post){
 	if( target.indexOf(pre) === -1 || target.indexOf(post) === -1 || target.indexOf(post) < target.indexOf(pre) ){
@@ -91,13 +91,12 @@ React.proptypes = {
 const container = {
 	border: '1px solid #c9c9c9',
 	borderRadius: '4px',
-	width: '500px'
 }
 
 const header = {
 	color: 'rgba(0,0,0,0.74)',
-	height: '62px',
-	lineHeight: '62px',
+	height: '56px',
+	lineHeight: '56px',
 	fontSize: '18px',
 	padding: '0 16px',
 	borderBottom: '1px solid #c9c9c9'

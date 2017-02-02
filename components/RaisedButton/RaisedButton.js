@@ -43,9 +43,9 @@ const themeStyle = {
 
 class RaisedButton extends React.Component {
 	getStyle () {
-		var { backgroundColor, color, theme } = this.props
+		var { backgroundColor, color, theme, style } = this.props
 
-		return Object.assign({}, defStyle, {
+		return Object.assign({}, defStyle, style, {
 			backgroundColor: backgroundColor ? backgroundColor : themeStyle[theme].backgroundColor,
 			color: color ? color : themeStyle[theme].color 
 		})
@@ -68,7 +68,6 @@ class RaisedButton extends React.Component {
 		var { icon, color, theme } = this.props,
 			props = {
 				style: {
-					float: 'left',
 					height: '36px',
 					margin: '0 8px 0 0'
 				},
@@ -82,8 +81,16 @@ class RaisedButton extends React.Component {
 		var { children } = this.props
 		return (
 			<div>
-				{ this.getIcon() }
-				<div style={{float:'left',height:'36px',lineHeight:'36px'}}>{ children }</div>
+				<div style={{
+					display: 'inline-block',
+					float: 'left'
+				}}>{ this.getIcon() }</div>
+				<div style={{
+					display: 'inline-block',
+					height:'36px',
+					lineHeight:'36px',
+					float: 'left'
+				}}>{ children }</div>
 			</div>
 		)
 	}
@@ -115,6 +122,7 @@ RaisedButton.defaultProps = {
 }
 
 RaisedButton.proptypes = {
+	style: React.PropTypes.object,
 	disabled: React.PropTypes.bool,
 	backgroundColor: React.PropTypes.string,
 	color: React.PropTypes.string,

@@ -12,7 +12,7 @@ const defStyle = {
 	color: 'rgba(0,0,0,0.87)',
 	overflow: 'hidden',
 	// required for bug width transfrom:scale and overflow:hidden in chrome, http://stackoverflow.com/questions/16687023/bug-with-transform-scale-and-overflow-hidden-in-chrome
-	zIndex: '1'	
+	zIndex: '1'
 }
 
 const innerStyle = {
