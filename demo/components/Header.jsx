@@ -1,15 +1,18 @@
 import React from 'react'
-import MenuIcon from './MenuIcon'
+import MenuIcon from './MenuIcon.jsx'
 import setShadow from '../utils/setShadow'
+import { Link } from 'react-router'
 
 class Header extends React.Component {
 
 	render () {
+		var props = this.props
+
 		return (
 			<div style={ style.header }>
-				<div style={ style.logo }>LOGO</div>
+				<Link to='/' style={ style.logo }>LOGO</Link>
 				<div style={ style.menu }>
-					<MenuIcon onClick={ this.props.onClick }/>
+					<MenuIcon onClick={ props.onClick } visible={ props.visible }/>
 				</div>
 				<div style={ style.link }>Link</div>
 			</div>
@@ -19,14 +22,17 @@ class Header extends React.Component {
 ///
 const style = {
 	header: {
-		position: 'relative',
-		width: '100%',
+		position: 'fixed',
+		left: 0,
+		top: 0,
+		right: 0,
 		height: '86px',
 		background: '#2196F3',
 		boxShadow: setShadow(4),
 		zIndex: 4
 	},
 	logo: {
+		display: 'block',
 		width: '236px',
 		height: '86px',
 		lineHeight: '86px',

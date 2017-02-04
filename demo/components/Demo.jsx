@@ -14,12 +14,6 @@ marked.setOptions({
 	}
 })
 
-function splitBetween(target, pre, post){
-	if( target.indexOf(pre) === -1 || target.indexOf(post) === -1 || target.indexOf(post) < target.indexOf(pre) ){
-		return ''
-	} 
-	return target.split(pre)[1].split(post)[0]
-}
 
 class Demo extends React.Component {
 	constructor(props) {
@@ -39,7 +33,7 @@ class Demo extends React.Component {
 	render () {
 		var { title, description, code, children } = this.props
 		var visible = this.state.codeVisible
-		//var code = splitBetween(code, '```', '```').trim()
+
 		var codeHtml = { 
 			__html: marked( code )
 		}
@@ -63,8 +57,8 @@ class Demo extends React.Component {
 					>
 						<CodeIcon 
 							style={ codeIcon } 
-							color={ visible ? "rgba(33,150,243,0.62)" : "#9e9e9e" }  
-							hoverColor={ visible ? "rgba(33,150,243,1)" : "#424242" }
+							color={ !visible ? "rgba(33,150,243,1)" : "#424242" }  
+							hoverColor={ !visible ? "rgba(33,150,243,0.64)" : "#969696" }
 						/>
 					</span>
 				</div>
@@ -78,19 +72,22 @@ class Demo extends React.Component {
 }
 
 ///
-React.defaultProps = {
-	code: ''
+Demo.defaultProps = {
+	code: '',
+	title: '',
+	description: ''
 }
 
-React.proptypes = {
+Demo.proptypes = {
 	title: React.PropTypes.string,
 	description: React.PropTypes.string,
 	code: React.PropTypes.string
 }
 
 const container = {
-	border: '1px solid #c9c9c9',
+	border: '1px solid #e3e3e3',
 	borderRadius: '4px',
+	marginBottom: '20px'
 }
 
 const header = {
@@ -99,7 +96,7 @@ const header = {
 	lineHeight: '56px',
 	fontSize: '18px',
 	padding: '0 16px',
-	borderBottom: '1px solid #c9c9c9'
+	borderBottom: '1px solid #e3e3e3'
 }
 
 const textBlock = {
@@ -129,7 +126,7 @@ const codeTip = {
 }
 
 const codeBlock = {
-	borderTop: '1px dashed #c9c9c9'
+	borderTop: '1px dashed #e3e3e3'
 }
 
 export default Demo

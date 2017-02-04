@@ -4,18 +4,6 @@ import 'prismjs/components/prism-jsx'
 import marked from 'marked'
 import 'github-markdown-css/github-markdown.css'
 
-class CodeDemo extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
-	render () {
-		return (
-			<div>123</div>
-		)
-	}
-}
-
 marked.setOptions({
 	gfm: true,
 	highlight: function (code) {
@@ -55,7 +43,7 @@ class Doc extends React.Component {
 					dangerouslySetInnerHTML={{__html: marked( docs[0] ) }}>
 				</div>
 				<div style={ style.demo }>
-					{ React.createElement(demo) }
+					{ demo }
 				</div>
 				<div 
 					className='markdown-body' 
@@ -67,7 +55,8 @@ class Doc extends React.Component {
 }
 
 Doc.defaultProps = {
-	splitMark: '{{mark}}'
+	splitMark: '{{mark}}',
+	document: ''
 }
 
 Doc.proptypes = {

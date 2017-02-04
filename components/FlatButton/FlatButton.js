@@ -36,11 +36,10 @@ const themeStyle = {
 }
 
 class FlatButton extends React.Component {
-
 	getStyle () {
-		var { backgroundColor, color, theme } = this.props
+		var { backgroundColor, color, theme, style } = this.props
 
-		return Object.assign({}, defStyle, {
+		return Object.assign({}, defStyle, style, {
 			backgroundColor: backgroundColor ? backgroundColor : themeStyle[theme].backgroundColor,
 			color: color ? color : themeStyle[theme].color 
 		})
@@ -109,6 +108,7 @@ FlatButton.defaultProps = {
 }
 
 FlatButton.proptypes = {
+	style: React.PropTypes.object,
 	disabled: React.PropTypes.bool,
 	backgroundColor: React.PropTypes.string,
 	color: React.PropTypes.string,

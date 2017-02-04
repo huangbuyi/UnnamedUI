@@ -4,19 +4,20 @@ import './MenuIcon.css'
 class MenuIcon extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			visible: true
-		}
 		this.onClick = this.onClick.bind(this)
 		this.isInit = true
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		if( nextProps.visible === this.props.visible ) {
+			return false
+		}
+
+		return true
+	}
+
 	onClick () {
-		var state = this.state
-		this.setState({
-			visible: !state.visible
-		})
-		this.props.onClick( state.visible )
+		this.props.onClick()
 	}
 
 	componentDidMount() {
@@ -25,7 +26,7 @@ class MenuIcon extends React.Component {
 
 	render () {
 
-		var className = this.isInit ? '' : ( this.state.visible ? ' show' : ' hidden')
+		var className = this.isInit ? '' : ( this.props.visible ? ' hidden' : ' show')
 		className = 'menu-icon' + className
 
 
@@ -41,10 +42,6 @@ class MenuIcon extends React.Component {
 	componentWillUnmount() {
 		this.isInit = null
 	}
-}
-
-MenuIcon.defaultProps = {
-	onClick: function () {}
 }
 
 export default MenuIcon
