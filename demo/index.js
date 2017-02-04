@@ -1,11 +1,28 @@
 import React from 'react'
 import { render } from 'react-dom'
 import AppRouter from './Components/AppRouter.jsx'
+import { Link } from 'react-router'
+
+import Trigger from './components/Trigger.jsx'
+
+class Test extends React.Component {
+	render () {
+		var { ...props } = this.props
+		return (
+			<div { ...props }>321</div>
+		)
+	}
+}
 
 render(
-	<AppRouter />,
+	<Trigger>
+		<Test style={{
+			color: 'red'
+		}} />
+	</Trigger>,
 	document.querySelector('#content')
 )
+
 
 /*import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx'

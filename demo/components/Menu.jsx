@@ -86,9 +86,8 @@ const style = {
 		boxSizing: 'border-box',
 		display: 'block',
 		color: 'rgba(0,0,0,0.87)',
-		fontSize: '14px',
-		lineHeight: '42px',
-		textIndent: '1em',
+		fontSize: '16px',
+		lineHeight: '48px',
 		textTransform: 'capitalize',
 	},
 	active: {
