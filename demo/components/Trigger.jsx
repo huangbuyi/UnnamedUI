@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Item extends React.Component {
+class Trigger extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -73,14 +73,14 @@ class Item extends React.Component {
 	}
 }
 
-Item.defaultProps = {
+Trigger.defaultProps = {
 	hoverStyle: {background: 'red'},
 	activeStyle: {background: 'blue'},
 }
 
-Item.proptypes = {
+Trigger.proptypes = {
 	hoverStyle: React.PropTypes.object,
 	activeStyle: React.PropTypes.object,
 }
 
-export default Item
+export default Trigger
